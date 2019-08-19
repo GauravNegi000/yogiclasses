@@ -1,0 +1,41 @@
+<% include ../partials/clientHeader %>
+
+    <section id="tabs" class="project-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">                
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="login-container tab-pane fade show active" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab">
+                                <% if(error && error.length > 0) { %>      
+                                <div class="alert alert-danger" role="alert">
+                                    <%= error %>
+                                </div>
+                                <% } %>
+                            <div class="login-form-1">
+                                <h3>LOGIN <i class="lni-key"></i></h3>
+                                <form id="login" action="/index/login" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" placeholder="Your Username *" value="" data-validation="email" data-validation-error-msg="You did not enter a valid username(e-mail)" required/>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password" placeholder="Your Password *" value="" data-validation="required" data-validation-error-msg="You did not enter a password" required/>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <input type="submit" class="form-control btn btn-primary" value="Login" />
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="#" class="btnForgetPwd">Forget Password?</a>
+                                        <a href="#" class="btnRegister">Not Registered Yet ?</a>
+                                        <a href="/index/registration" class="btnRegister">Student ?</a>
+                                        <a href="/index/registrationteacher" class="btnRegister">Teacher ?</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<% include ../partials/clientFooter %>

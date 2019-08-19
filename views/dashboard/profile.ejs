@@ -1,0 +1,336 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+<% if(role == 'student' ) { profile = student } %>
+<% if(role == 'teacher' ) { profile = teacher } %>
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <% if(success && success.length > 0) { %>      
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                    <% if(error && error.length > 0) { %>      
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Your Profile</h1>
+                    </div>
+                </div>
+                <div class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <% if(role != 'admin') { %>
+                            <li class="active">
+                                <a href="#tab_default_1" data-toggle="tab">
+                                Profile</a>
+                            </li>
+                            <li>
+                                <a href="#tab_default_2" data-toggle="tab">
+                                Update Profile</a>
+                            </li>
+                            <% } else { %>
+                            <li class="active">
+                                <a href="#tab_default_2" data-toggle="tab">
+                                Update Profile</a>
+                            </li>
+                            <% } %>                            
+                        </ul>
+                        <div class="tab-content">
+                            <% if(role != 'admin') { %>
+                            <div class="tab-pane active" id="tab_default_1">
+                                <div class="container-fluid">
+                                    <h1 class="page-subhead-line">Your profile details here.</h1>
+                                    <% if(profile != null) { %>                                                                        
+                                    <div class="row">
+                                        <% if(profile.image.fileName != undefined) {  %>
+                                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                                            <img src="/image/<%= profile.image.fileName %>" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;"/>
+                                        </div>
+                                        <% } else { %>
+                                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                                            <img src="/dashboard/img/defaultuser.jpg" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;"/>
+                                        </div>
+                                        <% } %>
+                                    </div><hr>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Student's Name</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.name %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Mother's Name</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.motherName %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Father's Name</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.fatherName %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Permanent Address</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.pAddress %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Correspondance Address</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.cAddress %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Mobile No.</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.mobile %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Email ID</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.emailId %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Date of Birth(dd/mm/yyyy)</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.dob %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>High School/College Name</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.college %></p>
+                                        </div>
+                                    </div>
+                                    <% if(role == 'teacher') { %>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Academics</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.academic %></p>
+                                        </div>
+                                    </div>  
+                                    <% } %>                             
+                                    <% if(role == 'student') { %>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Percentage/CGPA</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.percentage %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Father's Occupation</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.fatherOccupation %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Mother's Occupation</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.motherOccupation %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Family Annual Income</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.annualIncome %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Subject Allot / Fees(p/m)</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.subjectAllot %></p>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                    <% if(role == 'teacher') { %>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Subject Expertise</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.subjects %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Sample Vide URL</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= profile.videourl %></p>
+                                        </div>
+                                    </div>
+                                    <% } %>                                    
+                                    <hr>
+                                    <% if(role == 'student' && student.teacherAllot != null) { %>                                    
+                                    <h3>Teacher Details here</h3>
+                                    <div class="row">
+                                        <% if(student.teacherAllot.image.fileName != undefined) {  %>
+                                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                                            <img src="/image/<%= student.teacherAllot.image.fileName %>" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                                        </div>
+                                        <% } else {  %>
+                                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                                            <img src="/dashboard/img/defaultuser.jpg" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                                        </div>
+                                        <% } %>
+                                    </div><hr>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Teacher Alotted</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= student.teacherAllot.name %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Address</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= student.teacherAllot.pAddress %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Mobile No.</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= student.teacherAllot.mobile %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Highest Qualification</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= student.teacherAllot.academic %></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h3>Video Course Enrolled</h3>
+                                        <% student.courseAllot.forEach(function(course){ %> 
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label>Course Name :</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><%= course.title %></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="/index/courses/single/<%= course.slug %>" class="btn btn-md btn-success">View</a>
+                                                </div>
+                                            </div>
+                                        <% }) %>
+                                    <% } %>                                    
+                                    <% } %>
+                                </div>
+                            </div>
+                            <% } %>
+                            <div class="tab-pane <% if(role == 'admin' ) { %> active <% } %>" id="tab_default_2">                                
+                                    <h1 class="page-subhead-line">You can edit your profile here.</h1>
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-4">Change your Photo</label>                                        
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="/dashboard/img/demoUpload.jpg" alt="" /></div>
+                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                                <% if(role != 'admin') { %>
+                                                <form action="/dashboard/<%= role %>/profile/<%= profile._id %>/image" method="POST" enctype="multipart/form-data">
+                                                <% } else { %>
+                                                <form action="/dashboard/<%= role %>/profile/image" method="POST" enctype="multipart/form-data">
+                                                <% } %>
+                                                <div>
+                                                    <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image" required accept="image/jpeg, image/png"></span>
+                                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                                </div><br>
+                                                <button type="submit" class="btn btn-warning">Upload</button><hr>
+                                                <p class="bg-color-black">[ Note: Only (.jpeg), (.jpg), (.png) image type supported and image size less than 400kb.]</p>
+                                                </form>
+                                            </div>                                        
+                                    </div> <hr>
+                                    <div>
+                                        <label class="control-label">Change your Password</label>  
+                                        <hr>
+                                        <form action="/dashboard/<%= role %>/profile/changepassword?_method=PUT" method="POST" >
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Current Password</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="password" class="form-control" placeholder='Enter Current Password here' name="oldpassword" required>
+                                                </div>
+                                                <div class="col-md-3">                                                    
+                                                </div>
+                                            </div> <br>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>New Password</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="password" class="form-control" placeholder='Enter New Password here' name="newpassword" required>
+                                                </div>
+                                                <div class="col-md-3">                                                    
+                                                </div>
+                                            </div> <br>
+                                            <div class="row">
+                                                <div class="col-md-3">                                                    
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-block btn-success ">Update</button>
+                                                </div>
+                                                <div class="col-md-3">                                                    
+                                                </div>
+                                            </div> 
+                                        </form>                                      
+                                    </div>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /. ROW  -->
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

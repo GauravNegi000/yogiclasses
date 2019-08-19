@@ -1,0 +1,172 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">            
+                <div class="row">
+                    <% if(success && success.length > 0) { %>      
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                    <% if(error && error.length > 0) { %>      
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Edit Courses</h1>
+                        <h1 class="page-subhead-line">You can edit the course here</h1>
+                    </div>                    
+                </div>
+                    <form action="/dashboard/admin/courses/<%= course._id %>/edit?_method=PUT" method="POST">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Course Title</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control" name="title" type="text" value="<%= course.title %>">
+                            </div>                           
+                        </div><br>  
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Course Objective</label>
+                            </div>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="description" ><%= course.description %></textarea>
+                            </div>                                
+                        </div> <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Course Eligibility</label>
+                            </div>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="description2" ><%= course.description2 %></textarea>
+                            </div>                                
+                        </div> <br>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label>Trainer Name</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" name="trainer" type="text" value="<%= course.trainer %>">
+                            </div> 
+                            <div class="col-md-1">
+                                <label>Course Fee</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" name="fee" type="text" value="<%= course.courseFee %>">
+                            </div>   
+                            <div class="col-md-1">
+                                <label>Category</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" name="category" type="text" value="<%= course.category %>">
+                            </div>                              
+                        </div> <br>
+                        <div class="row">
+                            <div class="col-md-1">
+                                
+                            </div>
+                            <div class="col-md-9">
+                                <button class="form-control btn btn-success" type="submit">Update</button>
+                            </div>
+                            <div class="col-md-2">
+                                
+                            </div>
+                        </div>                                             
+                    </form><br><hr>
+                    <div class="card" style="max-width: 200px; height: 200px;">
+                        <img src="/image/<%= course.image.fileName %>" class="thumbnail"  style="max-width: 200px; height: 200px;">                        
+                    </div><br>
+                    <form action="/files/<%= course.image.fileId %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <hr>
+                    <form action="/dashboard/admin/courses/<%= course._id %>/upload?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Course Image</label>                                
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" name="image" type="file" required accept="image/jpeg, image/png">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="form-control btn btn-success" type="submit">Upload</button>                                
+                            </div>
+                        </div> 
+                    </form><hr>
+                    <p class="bg-color-black">[ Note: Only (.jpeg), (.jpg), (.png) image type supported and image size less than 400kb.]</p><hr>
+            <!-- Dropdowns -->
+                <h3>Course Outline</h3>
+                    <ul class="dropdowns">
+                        <% var count = 0; %>    
+                        <% course.outline.forEach(function(heading){  %>
+                        <% ++count %>  
+                        <li class="has_children">
+                            <div class="dropdown_item">
+                                <div class="dropdown_item_title"><span>Lecture <%= count %>:</span> <%= heading.topic %>.
+                                    <form action="/dashboard/admin/courses/<%= course._id %>/edit/<%= heading._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want to Delete'); ">
+                                        <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                                    </form>
+                                </div>                                    
+                            </div>
+                            <ul>
+                                <% var subcount = 0; %>  
+                                <% heading.subTopic.forEach(function(sub) { %>
+                                <% ++subcount %>  
+                                <li>
+                                    <div class="dropdown_item">
+                                        <div class="dropdown_item_title"><a href="<%= sub.videoURL %>"><span>Lecture <%= count %>.<%= subcount %>:</span> <%= sub.name %></a> 
+                                        <form action="/dashboard/admin/courses/<%= course._id %>/edit/<%= heading._id %>/<%= sub._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want to Delete'); ">
+                                            <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                                        </form>
+                                        </div>                                        
+                                    </div>
+                                </li>
+                                <% }) %> <br>
+                                <form action="/dashboard/admin/courses/<%= course._id %>/edit/<%= heading._id %>" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Subtopic Name & URL</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input class="form-control" name="subtopic" type="text" placeholder="enter topic here">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input class="form-control" name="video" type="text" placeholder="enter video URL here">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="form-control btn btn-success" type="submit">ADD</button>
+                                        </div> 
+                                    </div>                                           
+                                </form>  														
+                            </ul>
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <h4>Add New Topic</h4>
+                    <form action="/dashboard/admin/courses/<%= course._id %>/edit/topic" method="POST">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Topic Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" name="newtopic" type="text" placeholder="enter topic here">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="form-control btn btn-success" type="submit">ADD</button>
+                            </div>
+                        </div>
+                    </form>  
+                    <hr>  
+                                         
+                <!-- /. ROW  -->
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

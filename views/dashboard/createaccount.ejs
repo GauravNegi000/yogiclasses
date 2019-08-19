@@ -1,0 +1,190 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Create Account</h1>
+                        <h1 class="page-subhead-line">Create account of the Student</h1>
+
+                    </div>
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group ">
+                                <label for="user" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username" id="user" />
+                            </div>
+                            <div class="form-group ">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" />
+                            </div> 
+                            <div class="form-group ">
+                                <label class="form-label">User type</label>
+                                <div id="group1">
+                                    <label class="form-label">Student</label>
+                                    <input type="radio" value="val1" name="group1">
+                                    <label class="form-label">Teacher</label>
+                                    <input type="radio" value="val2" name="group1">
+                                </div>
+                                <select name="studentId" size="1">
+                                    <% students.forEach(function(student){ %>
+                                        <option value="<%= student._id %>"><%= student.name %></option>
+                                    <% }) %>                               
+                                </select>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Create Student User
+                            </div>
+                            <div class="panel-body">
+                                <form>
+                                    <div id="wizard">
+                                        <h2>Details</h2>
+                                        <section>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Student Name</label>
+                                                            <input type="text" class="form-control" value="kshiti" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Mother's Name</label>
+                                                            <input type="text" class="form-control" value="Kshiti Ghelani" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Father's Name</label>
+                                                            <input class="form-control" type="text" value="kshitiz Ghelani" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Permanent Address</label>
+                                                            <input type="text" class="form-control" value="Haldwani Nainital Uttarakhand" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Corresponding Address</label>
+                                                            <input type="text" class="form-control" value="Haldwani Nainital Uttarakhand" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Moblie No.</label>
+                                                            <input type="text" class="form-control" value="8958592414" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Email ID</label>
+                                                            <input type="text" class="form-control" value="kshitighelani@gmail.com" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Date Of Birth</label>
+                                                            <input class="form-control" type="text" value="03/03/2000" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8 col-lg-8">
+                                                        <div class="form-group">
+                                                            <label class="control-label">High School College/Name</label>
+                                                            <input type="text" class="form-control" value="Amrapali Institute of Technology" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Last Class Percentage</label>
+                                                            <input type="text" class="form-control" value="71%" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Father's Occupation</label>
+                                                            <input type="text" class="form-control" value="Teacher" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Mother's Occupation</label>
+                                                            <input type="text" class="form-control" value="Housewife" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Family Annual Income</label>
+                                                            <input type="text" class="form-control" value="500000" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-lg-12">
+                                                        <div class="form-group">Subjects - For Tution</label>
+                                                            <input type="text" class="form-control" value="Maths,Physics,Chemistry" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <h2>Allot</h2>
+                                        <section>
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <label for="subject" class="form-label">Subject To Alot</label>
+                                                    <input type="text" class="form-control" name="subjects" id="subject" />
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="teacher" class="form-label">Teacher To Alot</label>
+                                                    <input type="text" class="form-control" name="teachers" id="teacher" />
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <h2>Account</h2>
+                                        <section>
+                                            <div class="form-group ">
+                                                <label for="user" class="form-label">UserName</label>
+                                                <input type="text" class="form-control" name="username" id="user" />
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" class="form-control" name="password" id="password" />
+                                            </div>
+                                        </section>
+
+                                        <h2>Finish</h2>
+                                        <section>
+                                            <h3>Click Submit to create user</h3>
+                                            <input type="submit" value="Submit" class="form-control btn btn-success">
+                                        </section>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- /. ROW  -->
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

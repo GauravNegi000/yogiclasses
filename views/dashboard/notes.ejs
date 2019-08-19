@@ -1,0 +1,67 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+<% if(role == 'student' ) { profile = student } %>
+<% if(role == 'teacher' ) { profile = teacher } %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <% if(success && success.length > 0) { %>      
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                    <% if(error && error.length > 0) { %>      
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Notes Uploaded</h1>
+                        <h1 class="page-subhead-line">All the Notes Provided Will be here</h1>
+
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="50">S.No.</th>
+                                <th width="400">Title</th>
+                                <% if(role == 'student') { %> <th width="400">Sender</th> <% } %>
+                                <% if(role == 'teacher') { %> <th width="400">Receiver</th> <% } %>
+                                <th colspan="2">Action</th>
+                                <!-- <th>Sub Total</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% var count = 1 %>
+                        <% profile.notes.reverse().forEach(note => { %>
+                            <tr>
+                                    <td><%= count++ %></td>
+                                    <td><%= note.title %></td>
+                                    <% if(role == 'student') { %> <td><%= note.sender %></td> <% } %>
+                                    <% if(role == 'teacher') { %> <td><%= note.receiver %></td> <% } %>
+                                    <td>
+                                    <form action="/files/<%= note.fileName %>/download" method="POST">
+                                        <button type="submit" class="btn btn-md btn-primary">Download</button>
+                                    </form>                                        
+                                    <td>
+                                    <form action="/dashboard/<%= role %>/notes/<%= note._id %>?_method=DELETE"  method="POST" onsubmit = "return confirm('Are You sure yo want to delete');">
+                                        <button type="submit" class="btn btn-md btn-danger">Delete</button>
+                                    </form>    
+                                    </td>               
+                            </tr>
+                        <% })   %>                                 
+                        </tbody>                         
+                    </table>
+                </div>                
+                <!-- /. ROW  -->
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

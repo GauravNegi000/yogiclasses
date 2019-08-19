@@ -1,0 +1,128 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <% if(success && success.length > 0) { %>      
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                    <% if(error && error.length > 0) { %>      
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Registration Details</h1>
+                        <h1 class="page-subhead-line">Registration Details of the Teacher</h1>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Student's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.name %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mother's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.motherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Father's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.fatherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Permanent Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.pAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Correspondance Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.cAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mobile No.</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.mobile %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Email ID</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.emailId %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Date of Birth(dd/mm/yyyy)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.dob %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>High School/College Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.college %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Sample Video URL</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.videourl %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Academics</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.academic %></p>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Subject Expertise</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.subjects %></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

@@ -1,0 +1,213 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Student Details</h1>
+                        <h1 class="page-subhead-line">Student details here</h1>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <% if(student.image.fileName != undefined) { %>
+                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                            <img src="/image/<%= student.image.fileName %>" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                        </div>
+                        <% } else { %>
+                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                            <img src="/dashboard/img/defaultuser.jpg" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                        </div>
+                        <% } %>   
+                    </div><hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Student's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.name %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mother's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.motherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Father's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.fatherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Permanent Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.pAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Correspondance Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.cAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mobile No.</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.mobile %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Email ID</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.emailId %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Date of Birth(dd/mm/yyyy)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.dob %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>High School/College Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.college %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Last Class Percentage/CGPA</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.percentage %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Father's Occupation</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.fatherOccupation %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mother's Occupation</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.motherOccupation %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Family Annual Income</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.annualIncome %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Subject's For Tution Asked</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.subjects %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Subject Alotted</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.subjectAllot %></p>
+                        </div>
+                    </div>
+                    <% if(student.teacherAllot != null) { %>
+                    <h3>Teacher Details here</h3>
+                    <div class="row">
+                        <% if(student.teacherAllot.image.fileName != undefined) { %>
+                        <div class="col-md-4" style="max-width: 200px; height: 200px;" >
+                            <img src="/image/<%= student.teacherAllot.image.fileName %>" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                        </div>
+                        <% } else { %>
+                        <div class="col-md-4" style="max-width: 200px; height: 200px;">
+                            <img src="/dashboard/img/defaultuser.jpg" class="img-responsive img-thumbnail" style="max-width: 200px; height: 200px;" />
+                        </div>
+                        <% } %>  
+                    </div><hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Teacher Alotted</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.teacherAllot.name %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.teacherAllot.pAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mobile No.</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.teacherAllot.mobile %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Highest Qualification</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= student.teacherAllot.academic %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <h3>Course Enrolled</h3>
+                    <% student.courseAllot.forEach(function(course){ %> 
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Course Name :</label>
+                            </div>
+                            <div class="col-md-4">
+                                <p><%= course.title %></p>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/index/courses/single/<%= course.slug %>" class="btn btn-md btn-success">View</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                <!-- /. ROW  -->
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

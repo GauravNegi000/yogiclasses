@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Yogi Classes</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5 mb-5"> 
+        <% if(success && success.length > 0) { %>      
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0) { %>      
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+        <% } %>                   
+    <div class="jumbotron">
+            <a class="btn btn-lg btn-success" href="/index">Home</a><br><br>
+            <h4 class="btn btn-info btn-lg" >All Uploaded Files are here</h4>
+    </div>
+    <div class="row">
+            <% if(files) { %>
+               <%  files.forEach(function(file){ %>
+                <div class="col-md-4 mb-4">
+                    <div class="card m-auto" style="max-width: 300px; max-height: 250px;">
+                        <% if(file.isImage) { %>
+                            <img src="/image/<%= file.filename %>"  class="img-thumbnail" style="max-width: 300px; max-height: 150px;"/>
+                        <% } else { %>
+                            <p class="mb-0"> Name: <%= file.filename.substring(32) %></p><p class="mb-0">Size: <%= Math.ceil((file.length)/1024) %> kb </p><p>Type : <%= file.contentType %></p>
+                        <% } %> 
+                        <form action="/files/<%= file.filename %>/download" method="POST">
+                            <button type="submit" class="btn btn-block btn-info">Download</button>
+                        </form>
+                        <form action="/files/<%= file._id %>?_method=DELETE" method="POST" onsubmit = "return confirm('Are You sure yo want to delete');">
+                        <button class="btn btn-block btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>    
+               <% }) %>                
+            <% } else { %>
+                <p>No Files To Show</p>
+            <% } %>    
+    </div>
+    <div>
+        <% if(current) {} %>
+        <% if (pages > 0) { %>
+            <ul class="pagination">
+                <% if (current == 1) { %>
+                    <li class="disabled page-item"><a class="page-link">First</a></li>
+                <% } else { %>
+                    <li><a href="/files/all/1" class="page-link">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="disabled page-item"><a class="page-link">...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active page-item"><a class="page-link"><%= i %></a></li>
+                    <% } else { %>
+                        <li class="page-item"><a href="/files/all/<%= i %>" class="page-link"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled page-item"><a class="page-link">...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled page-item"><a class="page-link">Last</a></li>
+                <% } else { %>
+                    <li class="page-item"><a href="/files/all/<%= pages %>" class="page-link">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>    

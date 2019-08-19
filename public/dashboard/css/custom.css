@@ -1,0 +1,387 @@
+﻿/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+/*==============================================
+    MAIN BOX  STYLES    
+    =============================================*/
+.main-box {
+    text-align:center;
+    padding:20px;
+    border-radius:5px;
+    -moz-border-radius:5px ;
+    -webkit-border-radius:5px;
+    margin-bottom:40px;
+}
+    .main-box a,.main-box a:hover {
+        color:#fff;
+        text-decoration:none;
+
+    }
+.mb-dull {
+    background-color:#8F8F2C;
+}
+.mb-red {
+    background-color:#d36f2e;
+}
+.mb-pink {
+    background-color:#FF2F71;
+}
+    .main-box h5 {
+        font-size:16px;
+        font-weight:800;
+        text-transform:uppercase;
+    }
+/*==============================================
+    CHAT WINDOW  STYLES    
+    =============================================*/
+
+.chat-widget-main {
+    max-height:500px;
+    padding:20px;
+    overflow:auto;
+}
+.chat-widget-left:after {
+    top: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #6792d5;
+    border-width: 15px;
+    margin-left: -15px;
+   
+}
+
+.chat-widget-left {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #6792d5;
+    font-size:14px;
+   
+}
+.chat-widget-right:after {
+    top: 100%;
+    right: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #d51111;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.chat-widget-right {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #d51111;
+    font-size:14px;
+    
+}
+
+.chat-widget-name-left {
+    color: #6792d5;
+    margin-top: 30px;
+    margin-left: 60px;
+    text-align:left;
+    font-weight:900;
+    padding-bottom:20px;
+    font-size:16px;
+}
+.chat-widget-name-right {
+    color: #d51111;
+    margin-top: 30px;
+    margin-right: 60px;
+    font-size:16px;
+    text-align:right;
+    font-weight:900;
+    padding-bottom:20px;
+    
+
+}
+
+/*==============================================
+        Reviews Styles
+    =============================================*/
+#reviews {
+    min-height:180px;
+    background-color:#64A2DB;
+	padding:15px;
+}
+#reviews h4 {
+color: #fff;
+line-height: 30px;
+font-size: 16px;
+}
+#reviews .user-img {
+border: 2px solid #fff;
+overflow: hidden;
+border-radius: 50%;
+display: inline-block;
+}
+
+#reviews .img-u {
+   max-height: 90px;
+max-width: 90px;
+}
+
+#reviews .c-black {
+    color:#fff;
+    font-style: italic;
+font-size: 20px;
+padding: 5px;
+}
+
+/*==============================================
+        NOTICE BOX STYLES
+    =============================================*/
+
+.noti-box {
+min-height: 100px;
+color:#fff;
+padding: 20px;
+}
+.noti-box .icon-box {
+display: block;
+float: left;
+margin: 0 15px 10px 0;
+width: 70px;
+height: 70px;
+line-height: 75px;
+vertical-align: middle;
+text-align: center;
+font-size: 40px;
+}
+.bg-color-black {
+background-color: #424242;
+color: #fff;
+}
+.main-text {
+font-size: 25px;
+font-weight: 600;
+}
+.color-bottom-txt {
+font-size: 16px;
+line-height: 30px;
+}
+.panel-back {
+background-color: #929292;
+}
+
+/*==========================================
+   GALLERY/ PORTFOLIO STYLES
+    =====================================================*/
+
+#port-folio {
+    padding-top: 10px; 
+    padding-bottom: 100px; 
+}
+.portfolio-item {
+    border:1px solid #000;
+    margin:3px;
+}
+    .portfolio-item p {
+        padding:12px;
+        color:#fff;
+        line-height:25px;
+    }
+
+.portfolio-item .overlay {
+   
+  background-color: #000;
+  text-align: center;
+  padding-bottom:30px;
+  
+}
+
+/*==========================================
+   GALLERY/ PORTFOLIO FILTER STYLES
+    =====================================================*/
+ul#filters {
+	padding: 0px;
+}
+#filters {
+	margin: 3% 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+	#filters li {
+		display: -webkit-inline-box;
+	}
+	#filters li span {
+		display: block;
+		padding: 5px 4px;
+		text-decoration: none;
+		color: #d51111;
+		cursor: pointer;
+		font-size: 18px;
+	}
+ 	#port-folio .portfolio-item {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		width: 100%;		
+        opacity:.2;
+		float:left;
+		overflow:hidden;
+	}
+	/* For BOOTSTRAP cards */
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    height: auto;
+}
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+}
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+}
+/* Dropdowns */
+.dropdowns
+{
+	margin-top: 17px;
+}
+.dropdowns li ul
+{
+	max-height: 0;
+	padding-left: 30px;
+	overflow: hidden;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+.dropdowns li
+{
+	position: relative;
+}
+.dropdowns li.has_children > .dropdown_item
+{
+	cursor: pointer;
+}
+.dropdown_item
+{
+	padding-top: 26px;
+	padding-bottom: 25px;
+}
+.dropdowns li:not(:last-child) .dropdown_item
+{
+	border-bottom: solid 1px #e5e5e5;
+}
+.dropdown_item_title
+{
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 700;
+	color: #384158;
+	padding-left: 24px;
+}
+.dropdown_item_title span
+{
+	font-size: 18px;
+}
+.dropdown_item_title::before
+{
+	position: absolute;
+	top: 1px;
+	left: 0;
+	/* font-family: 'FontAwesome'; */
+	/* content: '\f0f6'; */
+	font-size: 18px;
+	color: #384158;
+	opacity: 0.65;
+}
+.has_children > .dropdown_item > .dropdown_item_title::after
+{
+	position: absolute;
+	top: -10px;
+	right: 0;
+	/* font-family: 'FontAwesome'; */
+	/* content: '\f105'; */
+	font-size: 30px;
+	font-weight: 400;
+	color: #384158;
+}
+
+.dropdown_item_text
+{
+	margin-top: 10px;
+}
+.dropdown_item_text p
+{
+	font-size: 16px;
+	font-weight: 400;
+	color: #76777a;
+	line-height: 1.75;
+}

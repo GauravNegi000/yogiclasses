@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yogi Classes</title>
+
+    <link rel="icon" type="image/ico" href="/dashboard/img/headlogo.PNG">
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/dashboard/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="/dashboard/css/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="/dashboard/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="/dashboard/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='/dashboard/css/opensans.css' rel='stylesheet' type='text/css' />
+    <!-- BOOTSTRAP FILE UPLOAD -->
+    <link href="/dashboard/css/bootstrap-fileupload.min.css" rel="stylesheet" />
+    <!-- CUSTOM TABS -->
+    <link href="/dashboard/css/tabs.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+<% var role = currentUser.role %>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index/">Yogi Classes</a>
+        </div>
+
+        <div class="header-right">
+            <% if(currentUser.role == 'admin') { %>
+            <a href="/dashboard/<%= role %>/enquiry/1" class="btn btn-info" title="New Message"><i class="fa fa-envelope-o fa-2x"></i></a>
+            <% } %>
+            <% if(currentUser.role != 'admin') { %>
+            <a href="/dashboard/<%= role %>/notes" class="btn btn-info" title="New Message"><i class="fa fa-envelope-o fa-2x"></i></a>
+            <% } %>
+            <a href="/dashboard/<%= role %>/logout" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+        </div>
+    </nav>
+    <!-- /. NAV TOP  -->        
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                  <div class="user-img-div">
+                        <% if(currentUser.image.fileName != undefined) {  %>
+                        <img src="/image/<%= currentUser.image.fileName %>" class="img-thumbnail" />
+                        <% } else { %>
+                        <img src="/dashboard/img/defaultuser.jpg" class="img-thumbnail" />
+                        <% } %>
+                        <div class="inner-text">
+                            <%= currentUser.name %>
+                            <br />
+                        </div>
+                    </div>  
+
+                </li>
+
+                <li>
+                    <a href="/dashboard/<%= role %>" <% if(active == 'dashboard') { %> class="active-menu" <% } %> ><i class="fa fa-dashboard "></i>Dashboard</a>
+                </li>
+                <% if(currentUser.role != 'admin') { %>
+                <li>
+                    <a href="/dashboard/<%= role %>/notes" <% if(active == 'notes') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Notes</a>
+                </li>
+                <% } %>
+                <% if(currentUser.role == 'admin') { %>
+                <li>
+                    <a href="/dashboard/<%= role %>/registrations" <% if(active == 'registration') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Registration</a>
+                </li>
+                <li>
+                    <a href="/dashboard/<%= role %>/enquiry/1" <% if(active == 'enquiry') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Enquiry Page</a>
+                </li>
+                <li>
+                    <a href="/dashboard/<%= role %>/students/1" <% if(active == 'students') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Students</a>
+                </li>
+                <li>
+                    <a href="/dashboard/<%= role %>/teachers/1" <% if(active == 'teachers') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Teachers</a>
+                </li>
+                <li>
+                    <a href="/dashboard/<%= role %>/courses" <% if(active == 'courses') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Courses</a>
+                </li>
+                <li>
+                    <a href="/dashboard/<%= role %>/accounts/1" <% if(active == 'accounts') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Accounts</a>
+                </li>
+                <% } %>                
+                <li>
+                    <a href="/dashboard/<%= role %>/profile" <% if(active == 'profile') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Profile</a>
+                </li>
+                <% if(currentUser.role == 'admin') { %>            
+                <li>
+                    <a href="/dashboard/<%= role %>/transactions/1" <% if(active == 'transactions') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Transactions</a>
+                </li>
+                <% } else { %>
+                <li>
+                    <a href="/dashboard/<%= role %>/transactions" <% if(active == 'transactions') { %> class="active-menu" <% } %> ><i class="fa fa-square-o "></i>Transactions</a>
+                </li>
+                <% } %>
+            </ul>
+
+        </div>
+
+    </nav>
+    
+        <!-- /. NAV SIDE  -->

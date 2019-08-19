@@ -1,0 +1,149 @@
+<% include ../partials/clientHeader %>
+
+<section class=" section-padding ">    
+    <div class="container">
+        <div id="accordion">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h3>Yogi Classes Student Application Form</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-default">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        <button class="btn btn-info">
+                            <i class="glyphicon glyphicon-search text-gold"></i>
+                            <b>TO BE COMPLETED BY APPLICANT</b>
+                        </button>
+                    </h4>
+                </div>
+                <div>
+                    <div class="card-body">
+                        <form action="/index/registration" method="POST" >
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Student Name</label>
+                                        <input type="text" class="form-control" name="name" data-validation="length required" data-validation-length="2-30" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Mother's Name</label>
+                                        <input type="text" class="form-control" name="mother" data-validation="length" data-validation-length="2-30" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Father's Name</label>
+                                        <input class="form-control" type="text" name="father" data-validation="length required" data-validation-length="2-30" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Permanent Address</label>
+                                        <input type="text" class="form-control" name="paddress" data-validation="length required" data-validation-length="5-50" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Corresponding Address</label>
+                                        <input type="text" class="form-control" name="caddress" data-validation="length required" data-validation-length="5-50" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Moblie No.</label>
+                                        <input type="text" class="form-control" name="mobile" data-validation="number length required" data-validation-length="10-10" data-validation-error-msg="Please Input Correct Number" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Email ID</label>
+                                        <input type="text" class="form-control" name="email" data-validation="email required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Date Of Birth</label>
+                                        <div class="input-group date">
+                                            <input class="form-control" type="text" name="dob" data-validation="date required" data-validation-format="dd/mm/yyyy" />
+                                            <span class="input-group-append">
+                                                    <button class="btn btn-info" type="button">
+                                                        <i class="lni-calendar"></i>
+                                                    </button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8 col-lg-8">
+                                    <div class="form-group">
+                                        <label class="control-label">High School/ College Name</label>
+                                        <input type="text" class="form-control" name="college" data-validation="length required" data-validation-length="5-50" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Last Class Percentage/CGPA</label>
+                                        <input type="text" class="form-control" name="percentage" data-validation="length required" data-validation-length="1-5" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Father's Occupation</label>
+                                        <input type="text" class="form-control" name="foccupation" data-validation="length required" data-validation-length="3-20" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Mother's Occupation</label>
+                                        <input type="text" class="form-control" name="moccupation" data-validation="length required" data-validation-length="3-20" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Family Annual Income</label>
+                                        <input type="text" class="form-control" name="income" data-validation="length required" data-validation-length="1-15" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form-group"><label class="control-label">Subjects - For Tution</label>
+                                        <input type="text" class="form-control" name="subjects" data-validation="length required" data-validation-length="3-50" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <input type="checkbox" name="checkbox" value="check" id="agree" required /><a style="color: black">
+                                        Declaration: I hereby declare that the details furnished above are true and correct to the best of my knowledge
+                                        and belief and I undertake to inform you of any changes therein, immediately. In case any of the above
+                                        information is found to be false or untrue or misleading or misrepresenting, I am aware that I may be held liable
+                                        for it. 
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <hr>
+                                <p style="color: black">Note: Registration Form will be reviewed after submitting then You will get Password for Login</p>
+                            </div>
+                            <hr>
+                            <div class="col-md-12 col-lg-12">
+                                <input type="submit" class="form-control btn btn-success" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</section>
+<% include ../partials/clientFooter %>

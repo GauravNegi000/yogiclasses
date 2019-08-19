@@ -1,0 +1,134 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Registration Details</h1>
+                        <h1 class="page-subhead-line">Registration Details of the Student</h1>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Student's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.name %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mother's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.motherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Father's Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.fatherName %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Permanent Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.pAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Correspondance Address</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.cAddress %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mobile No.</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.mobile %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Email ID</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.emailId %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Date of Birth(dd/mm/yyyy)</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.dob %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>High School/College Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.college %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Last Class Percentage/CGPA</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.percentage %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Father's Occupation</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.fatherOccupation %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mother's Occupation</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.motherOccupation %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Family Annual Income</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.annualIncome %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Subject's For Tution</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= registration.subjects %></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

@@ -1,0 +1,62 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Enquiry Details</h1>
+                        <h1 class="page-subhead-line">Enquiry Details of the particular</h1>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= enquiry.name %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Email ID</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= enquiry.email %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Mobile No.</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= enquiry.mobile %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Subject</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= enquiry.subject %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Message</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= enquiry.message %></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

@@ -1,0 +1,102 @@
+    <!-- Footer Section Start -->
+    <footer id="footer" class="footer-area section-padding">
+            <div class="container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
+                            <div class="widget">
+                                <div class="textwidget">
+                                    <p>You can follow our social media handles here.</p>
+                                </div>
+                                <div class="social-icon">
+                                    <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
+                                    <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+                                    <a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <h3 class="footer-titel">Services</h3>
+                            <ul class="footer-link">
+                                <li><a href="/index/pricing/">Group Tutions</a></li>
+                                <li><a href="/index/pricing/">Home Tutions</a></li>
+                                <li><a href="/index/courses/">Online Courses</a></li>
+                            </ul>
+                        </div>                    
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <h3 class="footer-titel">Contact</h3>
+                            <ul class="address">
+                                <li>
+                                    <a href="#"><i class="lni-phone-handset"></i> P: 8909415674</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="lni-envelope"></i> E: Yogiclasses.2018@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright-content">
+                                <p>Copyright © 2019 <a rel="nofollow" href="#">Yourdomain.com</a> All Right Reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+    
+        <!-- Go to Top Link -->
+        <a href="#" class="back-to-top">
+            <i class="lni-arrow-up"></i>
+        </a>
+    
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader" id="loader-1"></div>
+        </div>
+        <!-- End Preloader -->
+    
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="/assets/js/jquery-min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <% if(page == 'index') { %>
+        <script src="/assets/js/form-validator.min.js"></script>
+        <% } %>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/wow.js"></script>
+        <script src="/assets/js/scrolling-nav.js"></script>
+        <script src="/assets/js/jquery.easing.min.js"></script>
+        <script src="/assets/js/jquery.nav.js"></script>
+        <script src="/assets/js/main.js"></script>    
+        <script src="/assets/js/jquery.form-validator.min.js"></script>   
+        <script>
+            $.validate();
+        </script>
+        <% if(page == 'sregistration' || page == 'tregistration' ) { %>
+        <script src="/assets/js/bootstrap-toggle.min.js"></script>
+        <script src="/assets/js/jquery.mask.js"></script>
+        <script src="/assets/js/bootstrap-datepicker.js"></script>
+        <script>
+            $(function() {
+                $(".date").datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                    todayHighlight: true
+                });
+            });
+            $.validate();
+        </script>
+        <% } %>
+        <% if(page == 'courseDetails') { %>
+        <script src="/assets/js/course.js"></script>
+        <% } %>
+    </body>
+    
+    </html>

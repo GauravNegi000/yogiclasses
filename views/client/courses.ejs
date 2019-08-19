@@ -1,0 +1,70 @@
+<% include ../partials/clientHeader %>
+         
+<section class="popular-courses-area section-padding bg-gray">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Online Video Courses</h2>
+            <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+        </div>    
+        <div class="row">
+            <% courses.reverse().forEach(function(course) { %>
+                <% if(course.isActive  ==  true) { %> 
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course wow fadeInUp" data-wow-delay="250ms">
+                        <a href="/index/courses/single/<%= course.slug %>"><img src="/image/<%= course.image.fileName %>" alt=""></a>
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <a href="/index/courses/single/<%= course.slug %>"><h4><%= course.title %></h4></a>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#"><%= course.trainer %></a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#"><%= course.category %></a>
+                            </div>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+                                <div class="seat">
+                                    <i class="fa fa-user" aria-hidden="true"></i> <%= course.studentsEnrolled.length %>
+                                </div>                              
+                            </div>
+                            <div class="course-fee h-100">
+                                <a href="#" class="free"><%= course.courseFee %></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }}) %>
+        </div> 
+        <% if (pages > 0) { %>
+            <ul class="pagination">
+                <% if (current == 1) { %>
+                    <li class="page-item disabled"><a class="page-link">First</a></li>
+                <% } else { %>
+                    <li class="page-item"><a class="page-link" href="/index/courses/1">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="disabled page-item"><a class="page-link">...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active page-item"><a class="page-link"><%= i %></a></li>
+                    <% } else { %>
+                        <li class="page-item"><a class="page-link" href="/index/courses/<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled page-item"><a class="page-link">...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled page-item"><a class="page-link">Last</a></li>
+                <% } else { %>
+                    <li class="page-item"><a class="page-link" href="/index/courses/<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>  
+    </div>
+</section>            
+
+<% include ../partials/clientFooter %>

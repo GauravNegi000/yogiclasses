@@ -1,0 +1,131 @@
+<% include ../partials/dashboardhead %>
+<% var role = currentUser.role %>
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <% if(success && success.length > 0) { %>      
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                    <% if(error && error.length > 0) { %>      
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">List of Teachers</h1>
+                    </div>
+                </div>
+                <div class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a>Teacher </a>
+                            </li>                         
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                <h1 class="page-subhead-line">It contains all the Teachers.</h1>
+                                <form class="form-inline" action="/dashboard/admin/teachers/<%= current %>" method="GET">
+                                    <div class="form-group">
+                                        <input type="search" class="form-control" name="search" placeholder="Enter Name" autocomplete="off">
+                                        <input type="submit" class="form-control btn btn-success" value="Search">
+                                    </div>
+                                </form><br><hr>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">S.No.</th>
+                                                <th width="400">Name</th>
+                                                <th width="400">Subject</th>
+                                                <th width="80">Status</th>
+                                                <th width="80">Account</th>
+                                                <th colspan="4">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% var count = 1; %>
+                                            <% teachers.forEach((teacher) => { %>
+                                                <% if (teacher.isActive == true) { %>
+                                                <tr>
+                                                    <td><%= count++ %></td>
+                                                    <td><%= teacher.name %></td>
+                                                    <td><%= teacher.subjects %></td>
+                                                    <td>
+                                                        
+                                                        <a class="btn btn-md btn-success">Active</a>
+                                                           
+                                                    </td>
+                                                    <td>
+                                                        <% if (teacher.hasAccount == true) { %> 
+                                                        <a class="btn btn-md btn-success">Yes</a>
+                                                        <% } else { %>
+                                                        <a class="btn btn-md btn-warning">No</a>   
+                                                        <% } %>       
+                                                     </td>
+                                                    <td>
+                                                        <a href="/dashboard/<%= role %>/teachers/details/<%= teacher._id %>"><button type="button" class="btn btn-md btn-primary">View</button> </a>
+                                                    </td> 
+                                                    <td>
+                                                        <a href="/dashboard/<%= role %>/teachers/<%= teacher._id %>/edit"><button type="button" class="btn btn-md btn-dark">Edit</button> </a>
+                                                    </td> 
+                                                    <td> 
+                                                        <% if (teacher.hasAccount == false) { %>     
+                                                        <form action="/dashboard/<%= role %>/teachers/account/<%= teacher._id %>" method="POST" >
+                                                        <button type="submit" class="btn btn-md btn-info">Create</button>
+                                                        </form>  
+                                                         <% } %>                                                  
+                                                    </td>                                                    
+                                                    <td>    
+                                                        <form action="/dashboard/<%= role %>/teachers/<%= teacher._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want to Delete'); " >
+                                                        <button type="submit" class="btn btn-md btn-danger">Delete</button>
+                                                        </form>                                                        
+                                                    </td>                                       
+                                                </tr> 
+                                            <% } })  %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <% if (pages > 0) { %>
+                                    <ul class="pagination text-center">
+                                        <% if (current == 1) { %>
+                                            <li class="disabled"><a>First</a></li>
+                                        <% } else { %>
+                                            <li><a href="/dashboard/admin/transactions/1">First</a></li>
+                                        <% } %>
+                                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                                        <% if (i !== 1) { %>
+                                            <li class="disabled"><a>...</a></li>
+                                        <% } %>
+                                        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                            <% if (i == current) { %>
+                                                <li class="active"><a><%= i %></a></li>
+                                            <% } else { %>
+                                                <li><a href="/dashboard/admin/transactions/<%= i %>"><%= i %></a></li>
+                                            <% } %>
+                                            <% if (i == Number(current) + 4 && i < pages) { %>
+                                                <li class="disabled"><a>...</a></li>
+                                            <% } %>
+                                        <% } %>
+                                        <% if (current == pages) { %>
+                                            <li class="disabled"><a>Last</a></li>
+                                        <% } else { %>
+                                            <li><a href="/dashboard/admin/transactions/<%= pages %>">Last</a></li>
+                                        <% } %>
+                                    </ul>
+                                <% } %>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+<% include ../partials/dashboardfoot %>

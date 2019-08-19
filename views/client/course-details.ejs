@@ -1,0 +1,198 @@
+<% include ../partials/clientHeader %>
+
+	<!-- Course -->
+<section class="section-padding bg-gray">
+	<div class="container course">
+		<div class="container">
+			<div class="row">
+
+				<!-- Course -->
+				<div class="col-lg-8">
+					
+					<div class="course_container">
+						<div class="course_title"><%= course.title %></div>
+						<div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Teacher:</div>
+								<div class="course_info_text"><a href="#"><%= course.trainer %></a></div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Fees:</div>
+								<div class="course_price"><a href="#"><%= course.courseFee %></a></div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Categories:</div>
+								<div class="course_info_text"><a href="#"><%= course.category %></a></div>
+							</div>
+
+						</div>
+
+						<!-- Course Image -->
+						
+						<div class="course_image"><img src="/image/<%= course.image.fileName %>" alt=""></div>
+						
+
+						<!-- Course Tabs -->
+						<div class="course_tabs_container">
+							<div class="tabs d-flex flex-row align-items-center justify-content-start">
+								<div class="tab active">description</div>
+								<div class="tab">curriculum</div>								
+							</div>
+							<div class="tab_panels">
+
+								<!-- Description -->
+								<div class="tab_panel active">
+									<div class="tab_panel_title"><%= course.title %></div>
+									<div class="tab_panel_content">										
+										<div class="tab_panel_section">
+											<div class="tab_panel_subtitle">Objectives</div>
+											<p><%= course.description %></p>
+										</div>
+										<div class="tab_panel_section">
+											<div class="tab_panel_subtitle">Requirements</div>
+											<div class="tab_panel_text">
+												<p><%= course.description2 %></p>
+											</div>
+										</div>
+										<div class="tab_panel_faq">
+											<div class="tab_panel_title">FAQ</div>
+
+											<!-- Accordions -->
+											<div class="accordions">
+												
+												<div class="elements_accordions">
+
+													<div class="accordion_container">
+														<div class="accordion d-flex flex-row align-items-center"><div>Can I just enroll in a single course?</div></div>
+														<div class="accordion_panel">
+															<p>Lorem ipsun gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+														</div>
+													</div>
+
+													<div class="accordion_container">
+														<div class="accordion d-flex flex-row align-items-center active"><div>I'm not interested in the entire Specialization?</div></div>
+														<div class="accordion_panel">
+															<p>Lorem ipsun gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+														</div>
+													</div>
+
+													<div class="accordion_container">
+														<div class="accordion d-flex flex-row align-items-center"><div>What is the refund policy?</div></div>
+														<div class="accordion_panel">
+															<p>Lorem ipsun gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+														</div>
+													</div>
+
+													<div class="accordion_container">
+														<div class="accordion d-flex flex-row align-items-center"><div>What background knowledge is necessary?</div></div>
+														<div class="accordion_panel">
+															<p>Lorem ipsun gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+														</div>
+													</div>
+
+													<div class="accordion_container">
+														<div class="accordion d-flex flex-row align-items-center"><div>Do i need to take the courses in a specific order?</div></div>
+														<div class="accordion_panel">
+															<p>Lorem ipsun gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+														</div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Curriculum -->
+								<div class="tab_panel tab_panel_2">
+									<div class="tab_panel_content">
+										<div class="tab_panel_title"><%= course.title %></div>
+										<div class="tab_panel_content">											
+
+											<!-- Dropdowns -->
+											<ul class="dropdowns">
+												<% var count = 0; %>    
+												<% course.outline.forEach(function(heading){  %>
+												<% ++count %>  
+												<li class="has_children">
+													<div class="dropdown_item">
+														<div class="dropdown_item_title"><span>Chapter <%= count %>:</span> <%= heading.topic %>.</div>														
+													</div>
+													<ul>
+														<% var subcount = 0; %>  
+														<% heading.subTopic.forEach(function(sub) { %>
+														<% ++subcount %>  
+														<li>
+															<div class="dropdown_item">
+																<% if(isAllowed) { %>
+																<div class="dropdown_item_title"><a href="/index/courses/<%= course.slug %>/<%= heading._id %>/video/<%= sub._id %>"><span>Lecture <%= count %>.<%= subcount %>:</span> <%= sub.name %></a></div>
+																<% } else { %>
+																<div class="dropdown_item_title"><span>Lecture <%= count %>.<%= subcount %>:</span> <%= sub.name %></a></div>
+																<% } %>																	
+															</div>
+														</li>
+														<% }) %> 														
+													</ul>
+												</li>
+												<% }) %>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Course Sidebar -->
+				<div class="col-lg-4">
+					<div class="sidebar">
+
+						<!-- Feature -->
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">Course Feature</div>
+							<div class="sidebar_feature">
+								<div class="course_price"><%= course.courseFee %></div>
+
+								<!-- Features -->
+								<div class="feature_list">
+
+									<!-- Feature -->
+									<div class="feature d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Duration:</span></div>
+										<div class="feature_text ml-auto">2 weeks</div>
+									</div>
+
+									<!-- Feature -->
+									<div class="feature d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Lectures:</span></div>
+										<div class="feature_text ml-auto"><%= course.outline.length %></div>
+									</div>									
+
+									<!-- Feature -->
+									<div class="feature d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Total Enrolled:</span></div>
+										<div class="feature_text ml-auto"><%= course.studentsEnrolled.length %></div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Feature -->											
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<% include ../partials/clientFooter %>

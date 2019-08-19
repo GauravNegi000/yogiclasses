@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Yogi Classes</title>
+    <meta name="description" content="Yogi Classes provides you the best tution facilities all over India">
+    <meta name="keywords" content="tution, Home tutors, tutors near me">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- Icon -->
+    <link rel="stylesheet" href="/assets/fonts/line-icons.css">
+    <!-- Title Icon -->
+    <link rel="icon" type="image/ico" href="/assets/img/headlogo.PNG">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css" >
+
+    <% if(page == 'index') { %>
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.css">
+    <% } %>
+    <% if(page == 'index' || page == 'courses') { %>
+    <!-- Animate -->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <% } %>
+    <% if(page == 'login') { %>
+    <!-- Login Style -->
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <% } %>
+    <% if(page == 'sregistration' || page == 'tregistration') { %>
+    <!-- Date Picker -->
+    <link href="/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <% } %>
+    <% if(page == 'courseDetails') { %>
+    <!-- Course Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/course.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/course_responsive.css">
+    <% } %>
+
+</head>
+
+<body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-md bg-inverse  scrolling-navbar <% if(page == 'index') { %> fixed-top <% } %>">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a href="/index" class="navbar-brand">
+                    <h5 style="color:#225096">YOGI CLASSES</h5>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+                        <li class="nav-item  <% if(page == 'index') { %> active <% } %>">
+                            <a class="nav-link" href="/index/">
+                  Home
+                </a>
+                        </li>
+                        <% if(page == 'index') { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">
+                  Services
+                </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">
+                  About Us
+                </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">
+                  Contact
+                </a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index/courses/1">
+                  Courses
+                </a>
+                        </li>                                                                                                
+                        <% } %>
+                        <% if( page == 'login' || !currentUser ) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Register
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" href="/index/registrationteacher/">Student</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" href="/index/registrationteacher/">Teacher</a>
+                                </li>                            
+                            </ul>
+                        </li>
+                        <% } %>
+                        <% if( page != 'login' ) { %>
+                        <% if( !currentUser ) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index/login">
+                    Login
+                  </a>
+                        </li>
+                        <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard/<%= currentUser.role %>/logout/">
+                    Logout
+                    </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard/<%= currentUser.role %>/">
+                    Dashboard
+                    </a>
+                        </li>
+                        <% } } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+        <% if(page != 'login') { %>
+        <% if(success && success.length > 0 || error && error.length > 0) { %>
+        <div class="container" style="padding-top: 70px">
+            <% if(success && success.length > 0) { %>      
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+            <% if(error && error.length > 0) { %>      
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+        </div>
+        <% } }%>
