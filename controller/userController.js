@@ -92,11 +92,11 @@ module.exports.signupTeacher       = ( req, res ) => {
 }
 // @Login user based on their roles
 module.exports.login    = (req, res, next) => {
-  var username = req.body.username.toLowerCase();  
+  var username = req.body.username; 
   User.findOne({username: username, isActive:true }, function(err, foundUser) {
-      if(!foundUser || err) {          
+      if(!foundUser || err) {                 
           req.flash("error", "Password or username is incorrect");
-          res.redirect('/index/login');        
+          res.redirect('/index/login');                   
       } else {
           if(foundUser.role == 'admin') {
             passport.authenticate('local', {

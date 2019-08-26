@@ -186,6 +186,7 @@ module.exports.postCreateStudent = (req, res) => {
                 motherOccupation: foundRegistration.motherOccupation,
                 annualIncome: foundRegistration.annualIncome,
                 subjects: foundRegistration.subjects,
+                declaration: foundRegistration.declaration,
                 isActive: true,
                 hasAccount: false
             }
@@ -535,6 +536,7 @@ module.exports.postCreateTeacher = (req, res) => {
                 videourl: foundRegistration.videourl,
                 academic: foundRegistration.academic,
                 subjects: foundRegistration.subjects,
+                declaration: foundRegistration.declaration,
                 isActive: true,
                 hasAccount: false
             }

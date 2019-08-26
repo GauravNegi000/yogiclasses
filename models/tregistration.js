@@ -13,7 +13,8 @@ var tregistrationSchema  = new mongoose.Schema({
     academic: String,
     videourl: String,
     subjects: String,
-
+    declaration: String,
+    
     isActive: Boolean
 });
 

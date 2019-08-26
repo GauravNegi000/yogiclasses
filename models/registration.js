@@ -15,6 +15,7 @@ var registrationSchema  = new mongoose.Schema({
     motherOccupation: String,
     annualIncome: String,
     subjects: String,
+    declaration: String,
 
     isActive: Boolean
 });

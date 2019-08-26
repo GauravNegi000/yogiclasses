@@ -58,6 +58,7 @@ module.exports.postRegistration = function(req, res) {
         motherOccupation: req.body.moccupation,
         annualIncome: req.body.income,
         subjects: req.body.subjects,
+        declaration: req.body.declaration,
         isActive: 0
     }
     Registration.create(newRegistration, function(err, newlyCreated) {
@@ -92,6 +93,7 @@ module.exports.postTRegistration = function(req, res) {
         videourl: req.body.videourl,
         academic: req.body.academic,
         subjects: req.body.subjects,
+        declaration: req.body.declaration,
         isActive: 0
     }
     Tregistration.create(newRegistration, function(err, newlyCreated) {

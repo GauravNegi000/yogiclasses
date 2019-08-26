@@ -34,7 +34,6 @@ router.get('/courses/:slug/:topicId/video/:subTopicId'       ,courseHandlers.che
 
 router.get('/pricing'                                        ,indexCtrl.getPricing);
 
-// router.get('/faculties'            ,indexCtrl.getFaculties);
 
 router.post('/contact'                                       ,indexCtrl.postContact);     
 

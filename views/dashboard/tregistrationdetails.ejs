@@ -98,7 +98,7 @@
                             <label>Sample Video URL</label>
                         </div>
                         <div class="col-md-8">
-                            <p><%= tregistration.videourl %></p>
+                            <p><a href="<%= tregistration.videourl %>" target="_blank"><%= tregistration.videourl %></a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -115,6 +115,14 @@
                         </div>
                         <div class="col-md-8">
                             <p><%= tregistration.subjects %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Declaration</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p><%= tregistration.declaration %></p>
                         </div>
                     </div>
                 </div>

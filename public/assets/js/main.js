@@ -103,3 +103,8 @@
   });      
 
 }(jQuery));
+
+function loginEmailValidation() {
+  document.forms['login']['username'].value = document.forms['login']['username'].value.toLowerCase();
+  return true;
+}

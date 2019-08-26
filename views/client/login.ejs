@@ -13,7 +13,7 @@
                                 <% } %>
                             <div class="login-form-1">
                                 <h3>LOGIN <i class="lni-key"></i></h3>
-                                <form id="login" action="/index/login" method="POST">
+                                <form id="login" action="/index/login" method="POST" onsubmit="return loginEmailValidation()">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="username" placeholder="Your Username *" value="" data-validation="email" data-validation-error-msg="You did not enter a valid username(e-mail)" required/>
                                     </div><br>

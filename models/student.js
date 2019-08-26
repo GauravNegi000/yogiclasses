@@ -50,6 +50,8 @@ var studentSchema       = new mongoose.Schema({
             created: {type:Date, default:Date.now}
         }
     ],
+    declaration: String,
+    
     isActive: Boolean,
     hasAccount: Boolean
 });
